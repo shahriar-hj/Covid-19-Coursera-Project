@@ -1,5 +1,4 @@
 # This Code will use John Hopkins Dataset and also happiness dataset
-
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -7,7 +6,7 @@ import matplotlib.pyplot as plt
 
 corona_dataset = pd.read_csv("Datasets/covid19_Confirmed_dataset.csv")
 corona_dataset.head(10)
-corona_dataset.shape()
+corona_dataset.shape
 
 df = corona_dataset.drop(["Lat", "Long"], axis=1)
 #   df = corona_dataset.drop(["Lat", "Long"], axis=1, inplace = True) # if you want to replace in corona_dataset
@@ -15,14 +14,21 @@ df.head(10)
 
 corona_dataset_aggregated = corona_dataset.groupby("Country/Region").sum()
 corona_dataset_aggregated.head(10)
-corona_dataset_aggregated.shape()
+corona_dataset_aggregated.shape
 
+plt.show()
+plt.figure
 corona_dataset_aggregated.loc["China"].plot()
 corona_dataset_aggregated.loc["Italy"].plot()
 corona_dataset_aggregated.loc["Spain"].plot()
 plt.legend()
 
+plt.show()
+plt.figure
 corona_dataset_aggregated.loc["China"][:10].plot()
+
+plt.show()
+plt.figure
 corona_dataset_aggregated.loc["Italy"].diff().plot()
 corona_dataset_aggregated.loc["Italy"].diff().max()
 
@@ -48,8 +54,8 @@ happiness_report.head(10)
 
 happiness_report.set_index("Country or region", inplace=True)
 happiness_report.head()
-happiness_report.shape()
-corona_data_max_infected.shape()
+happiness_report.shape
+corona_data_max_infected.shape
 
 new_data = corona_data_max_infected.join(happiness_report, how="inner")
 new_data.head()
